@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sadia's Birthday Surprise 🎀</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="decor" aria-hidden="true">
+  <span class="floaty">🐼</span><span class="floaty">🧸</span><span class="floaty">🎀</span>
+  <span class="floaty">🐼</span><span class="floaty">🤎</span><span class="floaty">🧸</span>
+</div>
+<div class="progress" id="progress" aria-label="Story progress"></div>
+<main class="app">
+  <section class="screen active" id="page1">
+    <div class="eyebrow">A tiny question for you 💌</div>
+    <h1>Don't you know what is today? 🥺</h1>
+    <div class="celebrate" aria-hidden="true">🐼 🎀 🧸</div>
+    <div class="buttons">
+      <button class="primary" onclick="knowBirthday()">I wanna know 😫</button>
+      <button class="secondary" onclick="dontKnow()">Don't wanna know 😒</button>
+    </div>
+    <p id="page1Message" class="small-note" role="status"></p>
+  </section>
+
+  <section class="screen" id="page2">
+    <div class="eyebrow">Somebody is extra special today</div>
+    <div class="celebrate" aria-hidden="true">🎉🎂🥳🎊</div>
+    <h1>It's Sadia's birthday!!! 🥳</h1>
+    <p>Happiest birthday, Sadia! May your day be as sweet, lovely, and adorable as you are. 💗</p>
+    <div class="buttons"><button class="primary" onclick="showPage(3); startConfetti(35)">Next 💌</button></div>
+  </section>
+
+  <section class="screen" id="page3">
+    <div class="eyebrow">A little something, just for you</div>
+    <h2>There is a letter for you from your Jelato vai....</h2>
+    <div class="envelope-wrap" onclick="openEnvelope()" role="button" tabindex="0" aria-label="Click to open the envelope" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openEnvelope()}">
+      <div class="envelope" id="envelope"><div class="flap"></div><div class="seal">💌</div></div>
+    </div>
+    <p><strong>Click to open</strong></p>
+    <p id="envelopeHint" class="small-note">Tap the envelope to see what's inside 🥺</p>
+    <div class="buttons hidden" id="letterNext"><button class="primary" onclick="showPage(4)">Read your letter 💗</button></div>
+  </section>
+
+  <section class="screen" id="page4">
+    <div class="eyebrow">A letter from Jelato vai 🤎</div>
+    <div class="letter">
+      <p>You are a very special person for me. May Allah give you all the happiness you deserve. 💗</p>
+      <p style="font-family:'Nunito',sans-serif;font-size:1rem">Keep smiling, birthday girl. You deserve all the beautiful things life has to offer. 🌷</p>
+    </div>
+    <div class="buttons">
+      <button class="primary" onclick="showPage(5)">I'm blessed 🥺</button>
+      <button class="secondary" onclick="heartbreak()">I don't like this 🥴</button>
+    </div>
+  </section>
+
+  <section class="screen" id="page5">
+    <div class="eyebrow">Choose carefully 😌</div>
+    <h1 id="choiceTitle">A little birthday deal... 🎁</h1>
+    <p id="choiceMessage">Your Jelato vai has one tiny request. What will it be? 😏</p>
+    <div class="buttons" id="treatChoices">
+      <button class="primary" onclick="showPage(6)">Give your Jelato vai a treat 🍰</button>
+      <button class="secondary" onclick="noMoney()">I don't have money 😒</button>
+    </div>
+    <div class="buttons hidden" id="heartChoices"><button class="primary" onclick="resetToChoices()">Give me another chance 🥺</button></div>
+  </section>
+
+  <section class="screen" id="page6">
+    <div class="eyebrow">It's a date (literally) 📅</div>
+    <h1>Choose a date for the treat 😎</h1>
+    <p>Pick a day that works for you. Jelato vai will be waiting! 🍰</p>
+    <div class="calendar-box">
+      <label for="treatDate"><strong>Our treat date</strong></label>
+      <input id="treatDate" type="date" aria-label="Choose a date for the treat">
+      <p class="date-hint">Choose any date you like, birthday girl 🌸</p>
+    </div>
+    <p id="dateError" class="small-note" role="status"></p>
+    <div class="buttons"><button class="primary" onclick="confirmDate()">Done 💗</button></div>
+  </section>
+
+  <section class="screen" id="page7">
+    <div class="celebrate" aria-hidden="true">🥺🍰💗</div>
+    <h1>Thank you.... I shall be waiting 🥺</h1>
+    <p id="chosenDateText">The treat date is officially on the calendar!</p>
+    <p>Until then, enjoy your special day, Sadia. 🎀</p>
+    <div class="buttons"><button class="secondary" onclick="showPage(1)">Replay the surprise ↻</button></div>
+  </section>
+
+  <section class="screen" id="heartbreakPage">
+    <div class="eyebrow">Oh no... 💔</div>
+    <div class="heartbreak">💔</div>
+    <h1>You have broke my heart 💔</h1>
+    <p>Jelato vai is dramatically heartbroken now... 🥹</p>
+    <div class="buttons"><button class="primary" onclick="showPage(5); resetToChoices()">Okay, okay 🥺</button></div>
+  </section>
+</main>
+<footer>made with pink, pandas & a little bit of drama 🐼🧸</footer>
+<script src="script.js"></script>
+</body>
+</html>
